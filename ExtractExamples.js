@@ -8,10 +8,6 @@ const regExp = /\'([^']+?)\'/;
 
 const file = path.join(__dirname,"output.tsv");
 
-function n(n){
-    return n > 9 ? "" + n: "0" + n;
-}
-
 const url = "http://vrici.lojban.org/~gleki/index.html";
 const reqandwrite = function(arg){
   const res = request('GET', arg).getBody();
@@ -58,9 +54,7 @@ const reqandwrite = function(arg){
     }
   });
   const str=AR.join('\n');
-  //console.log(str);
   fs.writeFileSync(file, str);
-  //return acc;
 }
 
 reqandwrite(url);
