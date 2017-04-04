@@ -33,6 +33,12 @@ const reqandwrite = function(arg){
         });
         acc+=arr.join(" ").trim()+";";
       });
+      $(this).find('p[class=jbo]',this).each(function(){
+        acc+=$(this).text().trim().replace(/[\r\n]/g,'').trim()+";";
+      });
+      $(this).find('p[class=pronunciation-jbo]',this).each(function(){
+        acc+=$(this).text().trim().replace(/[\r\n]/g,'').trim()+";";
+      });
       acc+="\t";
       $(this).find('tr[class=gloss]').each(function(){
         let arr=[];
@@ -46,8 +52,14 @@ const reqandwrite = function(arg){
           acc+=$(this).text().trim().replace(/[\r\n]/g,'').trim()+";";
         }
       });
+      $(this).find('p[class=gloss]',this).each(function(){
+        acc+=$(this).text().trim().replace(/[\r\n]/g,'').trim()+";";
+      });
       acc+="\t";
       $(this).find('p[class=natlang]',this).each(function(){
+        acc+=$(this).text().trim().replace(/[\r\n]/g,'').trim()+";";
+      });
+      $(this).find('p[class=pronunciation-natlang]',this).each(function(){
         acc+=$(this).text().trim().replace(/[\r\n]/g,'').trim()+";";
       });
       AR.push(acc.replace(/;\t/g,'\t').replace(/;$/g,'').replace(/\{2,\}+/g,' '));
